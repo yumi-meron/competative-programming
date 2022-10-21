@@ -1,0 +1,14 @@
+class Solution:
+    def deleteDuplicates(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        ll = ListNode(0, next=head)
+        bi = ll
+        while head:
+            if head.next and head.val == head.next.val:
+                while head.next and head.val == head.next.val:
+                    head = head.next
+                bi.next = head.next
+            else:
+                bi = bi.next
+            head = head.next
+        return ll.next
+        
